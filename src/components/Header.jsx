@@ -13,7 +13,7 @@ function Header() {
     fetch("https://react-live.sourceindia-electronics.com/v1/api/settings/front-site")
       .then((res) => res.json())
       .then((resData) => {
-        if (resData.favicon_file) {
+        if (resData.favicon_file) { 
           const favicon = document.getElementById("dynamic-favicon");
           if (favicon) {
             favicon.href = `https://react-live.sourceindia-electronics.com/v1/${resData.favicon_file}`;
