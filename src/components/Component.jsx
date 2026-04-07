@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+
 
 function Component() {
   const [data, setData] = useState([]);
@@ -34,8 +37,10 @@ function Component() {
           </div>
 
           {/* Right Cards */}
+          
           <div className="col-lg-8 col-md-12">
-            <div className="row">
+            <Link to="/categories/automotive" style={{ textDecoration: "none" }}>
+              <div className="row">
 
               {data.length > 0 ? (
                 data[0].subcategories.map((sub, index) => (
@@ -84,8 +89,10 @@ function Component() {
                 <p>Loading...</p>
               )}
 
-            </div>
-          </div>
+              </div>
+            </Link>
+           </div>
+          
 
         </div>
       </div>

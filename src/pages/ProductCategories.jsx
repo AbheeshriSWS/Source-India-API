@@ -9,6 +9,7 @@ import MET from "../components/MET";
 import Featured from "../components/Featured";
 import Footer from "../components/Footer";
 
+
 function ProductCategories() {
   return (
     <>
