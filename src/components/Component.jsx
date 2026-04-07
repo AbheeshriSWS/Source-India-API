@@ -9,10 +9,6 @@ function Component() {
     )
       .then((res) => res.json())
       .then((response) => {
-        console.log("CATEGORY RESPONSE ➤", response);
-        console.log("FIRST ITEM ➤", response[0]);
-
-        // ✅ API returns direct array
         setData(response || []);
       })
       .catch((err) => console.error("Error:", err));
@@ -24,11 +20,15 @@ function Component() {
         <h3 className="section-heading">Component</h3>
 
         <div className="row main-box">
-          
+
           {/* Left Banner */}
           <div className="col-lg-4 col-md-12 mb-4">
             <div className="left-banner">
-              <img src="/side-img.jpg" alt="banner" />
+              <img
+  src={`https://react-live.sourceindia-electronics.com/v1/${data[0]?.file_name}`}
+  alt={data[0]?.name || "category"}
+  onError={(e) => (e.target.src = "/product.png")}
+/>
               <button className="view-btn">View All</button>
             </div>
           </div>
@@ -36,38 +36,43 @@ function Component() {
           {/* Right Cards */}
           <div className="col-lg-8 col-md-12">
             <div className="row">
-              
+
               {data.length > 0 ? (
-                data.map((card, index) => (
+                data[0].subcategories.map((sub, index) => (
                   <div className="col-md-6 mb-4" key={index}>
                     <div className="component-card">
 
                       <div className="card-content">
                         <div>
-                          {/* ✅ Title */}
-                          <h5>{card.name || "No Title"}</h5>
 
-                          {/* ✅ Sub Categories */}
+                          {/* ✅ h5 = Subcategory Name */}
+                          <h5 className="title">{sub.name}</h5>
+
+                          {/* ✅ li = item_categories */}
                           <ul>
-                            {card.subcategories &&
-                            card.subcategories.length > 0 ? (
-                              card.subcategories.map((item, i) => (
-                                <li key={i}>
-                                  {item.name || "No Name"}
-                                </li>
+                            {sub.item_categories &&
+                            sub.item_categories.length > 0 ? (
+                              sub.item_categories.slice(0, 4).map((item, i) => (
+                                <li key={i}>{item.name}</li>
                               ))
                             ) : (
                               <li>No items</li>
                             )}
                           </ul>
+
                         </div>
 
                         {/* ✅ Image */}
                         <div className="card-img">
-                          <img
-                            src={card.image || "/product.png"}
-                            alt={card.name || "category"}
-                          />
+                         <img
+                          src={
+                            sub.file_name
+                              ? `https://react-live.sourceindia-electronics.com/v1/${sub.file_name}`
+                              : "/product.png"  // fallback
+                          }
+                          alt={sub.name}
+                          
+                        />
                         </div>
                       </div>
 
@@ -76,7 +81,7 @@ function Component() {
                   </div>
                 ))
               ) : (
-                <p>Loading categories...</p>
+                <p>Loading...</p>
               )}
 
             </div>

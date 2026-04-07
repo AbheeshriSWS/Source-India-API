@@ -2,19 +2,27 @@ import React, { useEffect, useState } from "react";
 
 function Featured() {
   const [companies, setCompanies] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(
-      "https://react-live.sourceindia-electronics.com/v1/api/products?is_delete=0&status=1&is_approve=1&limit=11&page=1"
+      "https://react-live.sourceindia-electronics.com/v1/api/products/companies?is_delete=0&limit=11&page=1"
     )
       .then((res) => res.json())
       .then((response) => {
-        console.log("PRODUCT RESPONSE ➤", response);
-
-        // ✅ FIXED: correct key
-        setCompanies(response.products || []);
+        console.log("COMPANIES RESPONSE ➤", response);
+        if (response && Array.isArray(response.companies)) {
+          setCompanies(response.companies);
+        } else {
+          setCompanies([]);
+        }
+        setLoading(false);
       })
-      .catch((err) => console.error("Error:", err));
+      .catch((err) => {
+        console.error("Error:", err);
+        setCompanies([]);
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -25,35 +33,37 @@ function Featured() {
         </h2>
 
         <div className="row g-4">
-          {companies.length > 0 ? (
-            companies.map((item, index) => (
-              <div
-                key={index}
-                className="col-6 col-sm-4 col-md-3 col-lg-2"
-              >
+          {loading ? (
+            <p className="text-center py-5">Loading...</p>
+          ) : companies.length === 0 ? (
+            <p className="text-center py-5">No featured companies available</p>
+          ) : (
+            companies.map((company, index) => (
+              <div key={index} className="col-6 col-sm-4 col-md-3 col-lg-2">
                 <div className="company-card text-center">
 
-                  {/* ✅ IMAGE */}
+                  {/* IMAGE */}
                   <div className="logo-wrapper">
                     <img
-                      src={item.image || "/featured.jpg"}
-                      alt={item.title || "product"}
+                      src={`https://react-live.sourceindia-electronics.com/v1/${company.company_logo_file}`}
+                      alt={company.organization_name}
                       className="img-fluid"
                     />
                   </div>
 
-                  {/* ✅ TITLE */}
+                  {/* ORGANIZATION NAME */}
                   <p className="company-name mt-3">
-                    {item.title || "No Title"}
+                    {company.organization_name || "No Name"}
                   </p>
 
+                  
                 </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-center">Loading...</p>
-          )}
 
+                
+              </div>
+              
+            ))
+          )}
           {/* More Card */}
           <div className="col-6 col-sm-4 col-md-3 col-lg-2">
             <div className="company-card text-center more-card">

@@ -26,14 +26,15 @@ function LatestProduct() {
               <div className="col-lg-4 col-md-6 mb-4" key={index}>
                 <div className="product-card">
                   <p className="category">
-                    {item.category || "Unknown"}    
+                    {item.category_name || "Unknown"}    
                   </p>
 
                   <div className="d-flex align-items-center">
                     <div className="image-box">
                       <img
-                        src={item.image || "/product.png"}
+                        src={`https://react-live.sourceindia-electronics.com/v1/${item.file_name}`}
                         alt={item.title || "Product"}
+                        onError={(e) => (e.target.src = "/product.png")} // fallback image
                       />
                     </div>
 
