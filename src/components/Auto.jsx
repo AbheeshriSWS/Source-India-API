@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 
 const Auto = () => {
   const [data, setData] = useState(null);
@@ -38,6 +40,7 @@ const Auto = () => {
 
         return (
           <div className="card section-card mb-4" key={cat.id}>
+            <Link to="/categories/automotive/products" style={{ textDecoration: "none" }}>
             {/* Section Header */}
             <div className="card-header d-flex justify-content-between align-items-center bg-white border-0">
               <h5 className="section-title">
@@ -47,31 +50,34 @@ const Auto = () => {
             </div>
 
             {/* Section Body */}
+            
             <div className="card-body">
-              <div className="row g-4">
-                {itemsToShow.map((item) => (
-                  <div
-                    className="col-12 col-sm-6 col-md-4 col-lg-3"
-                    key={item.id}
-                  >
-                    <div className="component-card text-center">
-                      <img
-                        src={
-                          item.file_name
-                            ? baseURL + item.file_name
-                            : "https://via.placeholder.com/120"
-                        }
-                        alt={item.name}
-                        style={{ maxWidth: "120px" }}
-                      />
-                      <h6>{item.name}</h6>
-                      <p>({item.product_count})</p>
+                <div className="row g-4">
+                  {itemsToShow.map((item) => (
+                    <div
+                      className="col-12 col-sm-6 col-md-4 col-lg-3"
+                      key={item.id}
+                    >
+                      <div className="component-card text-center">
+                        <img
+                          src={
+                            item.file_name
+                              ? baseURL + item.file_name
+                              : "https://via.placeholder.com/120"
+                          }
+                          alt={item.name}
+                          style={{ maxWidth: "120px" }}
+                        />
+                        <h6>{item.name}</h6>
+                        <p>({item.product_count})</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
             </div>
+             </Link> 
           </div>
+         
         );
       })}
     </div>

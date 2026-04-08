@@ -2,13 +2,14 @@
 .custom-header {
   font-family: Arial, sans-serif;
   font-size: 14px;
-  background-color: white;
+  background-color: #f8f9fa;
   border-bottom: 1px solid #ddd;
+  padding: 0;
 }
 
 /* Top bar styling */
 .top-bar {
-  background-color: white;
+  background-color: #f8f9fa;
   font-weight: 500;
   font-size: 14px;
 }
@@ -530,3 +531,155 @@
   font-size: 13px;
   color: #6c757d;
 }
+
+
+/*product-start*/
+body {
+  background-color: #f5f6f8;
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  padding: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #ffffff;
+  min-height: 100vh;
+  padding: 15px;
+  margin: 15px;
+  border-right: 1px solid #ddd;
+}
+
+.filter-box {
+  margin-bottom: 20px;
+}
+
+.filter-box h5 {
+  background: #114c9c;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+.checkbox-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.checkbox-list label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+/* Top bar */
+.content-area {
+  padding: 15px;
+}
+
+.product-top-bar {
+  background: #114c9c;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.sort-text {
+  font-weight: bold;
+}
+
+.sort-option {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.product-count {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+/* Buttons */
+.grid-btn{
+  border: 1px solid #ff7a00;
+}
+
+.list-btn{
+    border: 1px solid #fff;
+}
+
+.list-btn:hover{
+  border: 1px solid #ff7a00;
+  background: #ff7a00;
+}
+
+.grid-btn, .list-btn {
+    background: transparent;
+    padding: 5px 12px;
+    font-size: 13px;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.grid-btn.active {
+  background: #ff7a00;
+  color: #fff;
+  border: 1px solid #ff7a00;
+}
+
+/* Product Card */
+.product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+}
+
+/* IMPORTANT */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* PUSH BUTTON DOWN */
+.view-btnn {
+  margin-top: auto;
+  width: 100%;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+/* FIX uneven titles */
+
+.product-title {
+    color: #00449C;
+    font-weight: 500;
+}
+
+.card-body p{
+  margin: 0;
+} 
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
+/*product-end*/

@@ -31,8 +31,9 @@ function Header() {
 
   return (
     <>
-      <header className="custom-header container">
-        <div className="top-bar d-flex justify-content-between align-items-center px-3 py-1">
+      <header className="custom-header container-fluid">
+
+        <div className="top-bar d-flex justify-content-between align-items-center px-3 py-1 container">
           <div className="welcome-support d-flex align-items-center gap-3">
             <span className="welcome-text">
               {/* Keep the exact text "Welcome User!" */}
@@ -88,78 +89,80 @@ function Header() {
             <button className="btn btn-primary">Join Free</button>
           </div>
         </div>
-
-        <nav className="navbar navbar-expand-lg navbar-light px-3">
-          <a href="/" className="navbar-brand d-flex align-items-center custom-logo">
-            {/* Logo image or fallback text */}
-            {data?.logo_file ? (
-              <img
-                src={`https://react-live.sourceindia-electronics.com/v1/${data.logo_file}`}
-                alt={data.title || "Logo"}
-                style={{ maxHeight: "50px" }}
-              />
-            ) : (
-              <>
-                <span className="logo-sou">Sou</span>
-                <span className="logo-rce">rce</span>
-                <span className="logo-india">India</span>
-              </>
-            )}
-          </a>
-
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="navbarMenu"
-            aria-controls="navbarMenu"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarMenu">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
-              {data?.front_menu
-                ?.filter((menu) => menu.is_show).slice(0, 5)
-                .map((menu) =>
-                  menu.sub_menu && menu.sub_menu.length > 0 ? (
-                    <li className="nav-item dropdown" key={menu.id}>
-                      <a
-                        className="nav-link dropdown-toggle"
-                        href={menu.link || "javascript:void(0)"}
-                        id={`dropdown${menu.id}`}
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        {menu.name}
-                      </a>
-                      <ul className="dropdown-menu" aria-labelledby={`dropdown${menu.id}`}>
-                        {menu.sub_menu.map((sub) => (
-                          <li key={sub.id}>
-                            <a className="dropdown-item" href={sub.link}>
-                              {sub.name}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  ) : (
-                    <li className="nav-item" key={menu.id}>
-                      <a className="nav-link" href={menu.link}>
-                        {menu.name}
-                      </a>
-                    </li>
-                  )
-                )}
-            </ul>
-            <a href="https://elcina.com" className="btn btn-elcina ms-lg-3">
-              ELCINA Website
+        
+        <div className="container-fluid" style={{backgroundColor: "white"}}>
+          <nav className="navbar navbar-expand-lg navbar-light px-3 container">
+            <a href="/" className="navbar-brand d-flex align-items-center custom-logo">
+              {/* Logo image or fallback text */}
+              {data?.logo_file ? (
+                <img
+                  src={`https://react-live.sourceindia-electronics.com/v1/${data.logo_file}`}
+                  alt={data.title || "Logo"}
+                  style={{ maxHeight: "50px" }}
+                />
+              ) : (
+                <>
+                  <span className="logo-sou">Sou</span>
+                  <span className="logo-rce">rce</span>
+                  <span className="logo-india">India</span>
+                </>
+              )}
             </a>
-          </div>
-        </nav>
+
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="navbarMenu"
+              aria-controls="navbarMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
+
+            <div className="collapse navbar-collapse" id="navbarMenu">
+              <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
+                {data?.front_menu
+                  ?.filter((menu) => menu.is_show).slice(0, 5)
+                  .map((menu) =>
+                    menu.sub_menu && menu.sub_menu.length > 0 ? (
+                      <li className="nav-item dropdown" key={menu.id}>
+                        <a
+                          className="nav-link dropdown-toggle"
+                          href={menu.link || "javascript:void(0)"}
+                          id={`dropdown${menu.id}`}
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          {menu.name}
+                        </a>
+                        <ul className="dropdown-menu" aria-labelledby={`dropdown${menu.id}`}>
+                          {menu.sub_menu.map((sub) => (
+                            <li key={sub.id}>
+                              <a className="dropdown-item" href={sub.link}>
+                                {sub.name}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ) : (
+                      <li className="nav-item" key={menu.id}>
+                        <a className="nav-link" href={menu.link}>
+                          {menu.name}
+                        </a>
+                      </li>
+                    )
+                  )}
+              </ul>
+              <a href="https://elcina.com" className="btn btn-elcina ms-lg-3">
+                ELCINA Website
+              </a>
+            </div>
+          </nav>
+        </div>
       </header>
     </>
   );
