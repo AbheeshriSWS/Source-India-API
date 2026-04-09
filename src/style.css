@@ -653,7 +653,7 @@ body {
 .card-body {
   display: flex;
   flex-direction: column;
-  height: 20vh;
+  height: 100%;
 }
 
 .card-body h6{
