@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -248,12 +249,15 @@ const ProductPage = () => {
                     <h6>{product.title}</h6>
                     <p>{product.company_name}</p>
                     <p>{product.state_name}</p>
-                    
                   </div>
                   
                 </div>
-                <button className="view-btnn">View</button>
-              </div>
+                <Link to={`/categories/default/products/${product.id}`}>
+                  <button className="view-btnn">
+                    View →
+                  </button>
+                </Link>
+                </div>
             ))}
           </div>
 
