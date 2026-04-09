@@ -4,6 +4,8 @@ import ProductCategories from "./pages/ProductCategories";
 import Automotive from "./pages/Automotive";
 import Product from "./pages/Product";
 import Detail from "./pages/Detail";
+import Seller from "./pages/SellerListing";
+import SellerDetail from "./pages/SellerDetail";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -15,6 +17,8 @@ function App() {
       <Route path="/categories/automotive" element={<Automotive />} />
       <Route path="/categories/automotive/products" element={<Product />} />
       <Route path="/categories/:category/products/:productId" element={<Detail />} />
+      <Route path="/company-list" element={<Seller />} />
+      <Route path="/categories/:category/company/:slug" element={<SellerDetail />} />
     </Routes>
   );
 }

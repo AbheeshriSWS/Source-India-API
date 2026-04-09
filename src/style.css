@@ -1098,3 +1098,175 @@ body {
   right: -10px;
 }
 /*product-detail-end*/
+
+/*seller detail*/
+/* MAIN CARD */
+.main-card {
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+/* LOGO */
+.logo-boxx {
+  width: 90px;
+  height: 50px;
+  background: #0b3c5d;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* TITLE */
+.company-title {
+  color: #ff6a00;
+  font-weight: 600;
+}
+
+.location {
+  color: #666;
+  font-size: 14px;
+}
+
+/* INFO */
+.label {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 2px;
+}
+
+.value {
+  font-weight: 500;
+}
+
+.link {
+  color: #007bff;
+}
+
+/* DESCRIPTION */
+.desc-title {
+  font-weight: 500;
+}
+
+.desc-text {
+  color: #555;
+  font-size: 14px;
+}
+
+/* BUTTON */
+.enquiry-btn {
+  background: #ff6a00;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+}
+
+.enquiry-btn:hover {
+  background: #e55d00;
+}
+
+/* SIDE CARDS */
+.side-card {
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.highlight-card {
+  border-left: 4px solid #ff6a00;
+}
+
+/* BUTTONS */
+.submit-btn {
+  background: #1e3a8a;
+  color: white;
+  border-radius: 6px;
+}
+
+.register-btn {
+  background: #ff6a00;
+  color: white;
+  border-radius: 6px;
+}
+
+/* TEXT */
+.small-text {
+  font-size: 13px;
+  color: #666;
+}
+
+/* STARS */
+.stars {
+  color: #ccc;
+  font-size: 20px;
+}
+
+/* RESPONSIVE FIX */
+@media (max-width: 768px) {
+  .company-title {
+    font-size: 18px;
+  }
+
+  .logo-box {
+    width: 70px;
+    height: 40px;
+  }
+} 
+
+
+
+/*seller detrail*/
+
+.section-title {
+  font-weight: 600;
+  color: #1a3c6e;
+}
+
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.product-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.product-title {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.view-button {
+  background-color: #1e5aa6;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 18px;
+  font-size: 14px;
+}
+
+.view-button:hover {
+  background-color: #174a8c;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .product-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .product-title {
+    font-size: 14px;
+  }
+}

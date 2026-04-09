@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // ✅ Import Link for SPA navigation
 
 function Header() {
   const [data, setData] = useState(null);
@@ -35,10 +36,7 @@ function Header() {
 
         <div className="top-bar d-flex justify-content-between align-items-center px-3 py-1 container">
           <div className="welcome-support d-flex align-items-center gap-3">
-            <span className="welcome-text">
-              {/* Keep the exact text "Welcome User!" */}
-              Welcome User!
-            </span>
+            <span className="welcome-text">Welcome User!</span>
             <span className="support-text">
               Support:{" "}
               <a href={`tel:${data?.mobile || "8448293955"}`} className="support-link">
@@ -58,7 +56,6 @@ function Header() {
               style={{ minWidth: "150px" }}
             >
               <option>Products</option>
-              {/* You can add dynamic categories here if you have that API */}
             </select>
             <input
               type="search"
@@ -66,23 +63,12 @@ function Header() {
               placeholder="Enter product / service to search"
               aria-label="Search"
             />
-            <button type="submit" className="btn btn-primary">
-              Search
-            </button>
+            <button type="submit" className="btn btn-primary">Search</button>
           </form>
 
           <div className="auth-buttons d-flex gap-2">
             <a href="/support" className="support-link d-flex align-items-center">
-              <span
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "20px",
-                  lineHeight: "1",
-                  marginRight: "4px",
-                }}
-              >
-                ?
-              </span>
+              <span style={{ fontWeight: "bold", fontSize: "20px", lineHeight: "1", marginRight: "4px" }}>?</span>
               Support
             </a>
             <button className="btn btn-outline-primary">Sign In</button>
@@ -92,8 +78,7 @@ function Header() {
         
         <div className="container-fluid" style={{backgroundColor: "white"}}>
           <nav className="navbar navbar-expand-lg navbar-light px-3 container">
-            <a href="/" className="navbar-brand d-flex align-items-center custom-logo">
-              {/* Logo image or fallback text */}
+            <Link to="/" className="navbar-brand d-flex align-items-center custom-logo">
               {data?.logo_file ? (
                 <img
                   src={`https://react-live.sourceindia-electronics.com/v1/${data.logo_file}`}
@@ -107,13 +92,13 @@ function Header() {
                   <span className="logo-india">India</span>
                 </>
               )}
-            </a>
+            </Link>
 
             <button
               className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="navbarMenu"
+              data-bs-target="#navbarMenu"
               aria-controls="navbarMenu"
               aria-expanded="false"
               aria-label="Toggle navigation"
@@ -123,39 +108,58 @@ function Header() {
 
             <div className="collapse navbar-collapse" id="navbarMenu">
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
-                {data?.front_menu
-                  ?.filter((menu) => menu.is_show).slice(0, 5)
-                  .map((menu) =>
-                    menu.sub_menu && menu.sub_menu.length > 0 ? (
-                      <li className="nav-item dropdown" key={menu.id}>
-                        <a
-                          className="nav-link dropdown-toggle"
-                          href={menu.link || "javascript:void(0)"}
-                          id={`dropdown${menu.id}`}
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          {menu.name}
-                        </a>
-                        <ul className="dropdown-menu" aria-labelledby={`dropdown${menu.id}`}>
-                          {menu.sub_menu.map((sub) => (
-                            <li key={sub.id}>
-                              <a className="dropdown-item" href={sub.link}>
-                                {sub.name}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </li>
-                    ) : (
-                      <li className="nav-item" key={menu.id}>
-                        <a className="nav-link" href={menu.link}>
-                          {menu.name}
-                        </a>
-                      </li>
-                    )
-                  )}
+                {data?.front_menu &&
+                  (() => {
+                    const menuOrder = [
+                      "Home",
+                      "Product Categories",
+                      "Companies",
+                      "Event",
+                      "Enquiry",
+                    ];
+
+                    const filtered = data.front_menu.filter(
+                      (menu) => menu.is_show == 1
+                    );
+
+                    const orderedMenu = menuOrder
+                      .map((name) => filtered.find((m) => m.name === name))
+                      .filter(Boolean);
+
+                    return orderedMenu.map((menu) =>
+                      menu.sub_menu && menu.sub_menu.length > 0 ? (
+                        <li className="nav-item dropdown" key={menu.id}>
+                          <a
+                            className="nav-link dropdown-toggle"
+                            href="#"
+                            id={`dropdown${menu.id}`}
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            {menu.name}
+                          </a>
+                          <ul className="dropdown-menu">
+                            {menu.sub_menu
+                              .filter((sub) => sub.is_show == 1)
+                              .map((sub) => (
+                                <li key={sub.id}>
+                                  <Link className="dropdown-item" to={sub.link}>
+                                    {sub.name}
+                                  </Link>
+                                </li>
+                              ))}
+                          </ul>
+                        </li>
+                      ) : (
+                        <li className="nav-item" key={menu.id}>
+                          <Link className="nav-link" to={menu.link}>
+                            {menu.name}
+                          </Link>
+                        </li>
+                      )
+                    );
+                  })()}
               </ul>
               <a href="https://elcina.com" className="btn btn-elcina ms-lg-3">
                 ELCINA Website
