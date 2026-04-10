@@ -17,11 +17,11 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/categories" element={<ProductCategories />} />
-      <Route path="/categories/automotive" element={<Automotive />} />
-      <Route path="/categories/automotive/products" element={<Product />} />
-      <Route path="/categories/:category/products/:productId" element={<Detail />} />
+      <Route path="/categories/component/automotive-components" element={<Automotive />} />
+      <Route path="/products" element={<Product />} />
+      <Route path="/products/:productId" element={<Detail />} />
       <Route path="/company-list" element={<Seller />} />
-      <Route path="/categories/:category/company/:slug" element={<SellerDetail />} />
+      <Route path="/company/:slug" element={<SellerDetail />} />
       <Route path="/buyer-list" element={<Buyer />} />
       <Route path="/trading-list" element={<Distributor />} />
       <Route path="/enquiry" element={<Enquiry />} />
@@ -30,3 +30,4 @@ function App() {
 }
 
 export default App;   
+

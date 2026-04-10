@@ -252,7 +252,7 @@ const ProductPage = () => {
                   </div>
                   
                 </div>
-                <Link to={`/categories/default/products/${product.id}`}>
+                <Link to={`/products/${product.slug}`}>
                   <button className="view-btnn">
                     View →
                   </button>

@@ -109,7 +109,7 @@ const OpenEnquiry = () => {
                       <button className="btn reply-btn">Reply</button>
                     </div>
                   )}
-                </div>
+                </div>  
               </div>
             ))}
           </div>

@@ -39,7 +39,7 @@ function Component() {
           {/* Right Cards */}
           
           <div className="col-lg-8 col-md-12">
-            <Link to="/categories/automotive" style={{ textDecoration: "none" }}>
+            <Link to="/categories/component/automotive-components" style={{ textDecoration: "none" }}>
               <div className="row">
 
               {data.length > 0 ? (

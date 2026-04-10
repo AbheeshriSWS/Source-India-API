@@ -40,7 +40,10 @@ const Auto = () => {
 
         return (
           <div className="card section-card mb-4" key={cat.id}>
-            <Link to="/categories/automotive/products" style={{ textDecoration: "none" }}>
+            <Link 
+  to={`/products?category_id=${data.subcategory.category.id}&subcategory_id=${data.subcategory.id}&item_category_id=${cat.id}`} 
+  style={{ textDecoration: "none" }}
+>
             {/* Section Header */}
             <div className="card-header d-flex justify-content-between align-items-center bg-white border-0">
               <h5 className="section-title">
