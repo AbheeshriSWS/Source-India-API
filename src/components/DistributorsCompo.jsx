@@ -111,7 +111,7 @@ useEffect(() => {
                             : "No products"}
                         </p>
 
-                        <Link to={`/categories/default/company/${slug}`}>
+                        <Link to={`/company/${slug}`}>
                             <button className="view-btnn btn btn-primary mt-2">View Details →</button>
                         </Link>
 

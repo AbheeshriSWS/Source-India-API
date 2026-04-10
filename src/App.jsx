@@ -8,6 +8,7 @@ import Seller from "./pages/SellerListing";
 import SellerDetail from "./pages/SellerDetail";
 import Buyer from "./pages/Buyer";
 import Distributor from "./pages/Distributor";
+import DistributorDetail from "./pages/DistributorDetail";
 import Enquiry from "./pages/Enquiry";
 
 import { Routes, Route } from "react-router-dom";
@@ -24,6 +25,7 @@ function App() {
       <Route path="/company/:slug" element={<SellerDetail />} />
       <Route path="/buyer-list" element={<Buyer />} />
       <Route path="/trading-list" element={<Distributor />} />
+      <Route path="/trading-list/:slug" element={<DistributorDetail />} />
       <Route path="/enquiry" element={<Enquiry />} />
     </Routes>
   );
