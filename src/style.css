@@ -1270,3 +1270,110 @@ body {
     font-size: 14px;
   }
 }
+
+/*enquiry*/
+/* Wrapper spacing */
+.open-enquiry-wrapper {
+  margin-top: 40px;
+}
+
+/* Header box */
+.open-enquiry-header {
+  background: linear-gradient(to right, #4e7dc1, #1f4d8f);
+  border-radius: 6px;
+  padding: 40px 0;
+  margin-bottom: 25px;
+}
+
+/* Header text */
+.open-enquiry-header h1 {
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Controls container */
+.open-enquiry-controls {
+  background: #f7f7f7;
+  padding: 18px 20px;
+  border-radius: 6px;
+}
+
+/* Left button */
+.btn-all {
+  background-color: #1f4d8f;
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  border: none;
+}
+
+.btn-all:hover {
+  background-color: #173b6c;
+  color: #fff;
+}
+
+/* Right button */
+.btn-add {
+  background-color: #ffffff;
+  color: #1f4d8f;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  border: 1px solid #1f4d8f;
+}
+
+.btn-add:hover {
+  background-color: #1f4d8f;
+  color: #ffffff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .open-enquiry-header h1 {
+    font-size: 28px;
+  }
+
+  .open-enquiry-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-all,
+  .btn-add {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.company-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.company-name {
+  font-size: 12px;
+  color: #666;
+}
+
+.desc {
+  font-size: 13px;
+  color: #444;
+  margin-top: 10px;
+}
+
+.date {
+  font-size: 12px;
+  color: #888;
+  margin-top: 8px;
+}

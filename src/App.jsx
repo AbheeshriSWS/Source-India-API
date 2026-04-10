@@ -6,6 +6,9 @@ import Product from "./pages/Product";
 import Detail from "./pages/Detail";
 import Seller from "./pages/SellerListing";
 import SellerDetail from "./pages/SellerDetail";
+import Buyer from "./pages/Buyer";
+import Distributor from "./pages/Distributor";
+import Enquiry from "./pages/Enquiry";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -19,6 +22,9 @@ function App() {
       <Route path="/categories/:category/products/:productId" element={<Detail />} />
       <Route path="/company-list" element={<Seller />} />
       <Route path="/categories/:category/company/:slug" element={<SellerDetail />} />
+      <Route path="/buyer-list" element={<Buyer />} />
+      <Route path="/trading-list" element={<Distributor />} />
+      <Route path="/enquiry" element={<Enquiry />} />
     </Routes>
   );
 }
